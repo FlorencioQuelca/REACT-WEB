@@ -1,37 +1,20 @@
-import { useState } from 'react';
-import Buscador from './componentes/Buscador';
+//import { Button, Icon, IconButton } from "@material-ui/core";
+//import DeleteIcon from "@material-ui/icons/Delete";
+//import { Container, Typography, InputAdornment } from "@material-ui/core";
 
-
-
+//import NavBar from "./componentes/NavBar";
+//import Inicio from "./componentes/Inicio";
+import theme from "./temaConfig";
+import { ThemeProvider } from "@material-ui/core/styles";
+import Principal from "./componentes/Principal";
 function App() {
-  
-  const [buscar, setBuscar]=useState(0)
-  const [personas, setPersonas]=useState([])
-  
-
-  const consultarApi =() =>{
-    const url = 'http://fpslapaz.tk/api/personas?txtBuscar='+parseInt(buscar);
-    console.log(url);
-    fetch(url).then(respuesta =>respuesta.json()).then (respuesta => {setPersonas(respuesta)})
-
- }
-  const DatosBusqueda = (termino) =>{
-         setBuscar(termino)
-         consultarApi();     
-    }
-
-    
-    
   return (
-    <div className="app container">
-       <div className="jumbotron">
-         <p className="lead text-center"> Buscador de personas</p>
-          <Buscador
-          mensaje = {DatosBusqueda}
-          /> 
-       </div>
-       {buscar}
-    </div>
+    
+
+      <ThemeProvider theme={theme}>
+        <Principal />
+      </ThemeProvider>
+  
   );
 }
 

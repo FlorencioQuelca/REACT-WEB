@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './bootstrap.css';
+
 
 function Buscador(props)  {
     const BusquedaRef=React.createRef();
